@@ -13,7 +13,7 @@
 
 
 const swapper = (key1,obj1,key2,obj2) => {
-  
+  const inspect = require('util').inspect;  
   console.log("Swap!");
   let newObj1Value = 0;
   let newObj2Value = 0;
@@ -24,14 +24,13 @@ const swapper = (key1,obj1,key2,obj2) => {
   obj1[key1] = newObj1Value;
   obj2[key2] = newObj2Value;
 
- console.log(obj1, obj2);
-
+ console.log(`object1 : ${inspect(obj1)}\nobject2 : ${inspect(obj2)}`);
 };
 
 
-console.log(swapper("a", { a: 1, b: 2, c: 3 }, "c", { a: 4, b: 3, c: 5 }));
-console.log(swapper("b", { a: 8, b: 7, c: 6 }, "d", { a: 5, b: 1, c: 2, d: 12 }));
-console.log(swapper("c", { a: 1, b: 3, c: 3, d: 7 }, "c", { a: 4, b: 0, c: 5 }));
+swapper("a", { a: 1, b: 2, c: 3 }, "c", { a: 4, b: 3, c: 5 });
+swapper("b", { a: 8, b: 7, c: 6 }, "d", { a: 5, b: 1, c: 2, d: 12 });
+swapper("c", { a: 1, b: 3, c: 3, d: 7 }, "c", { a: 4, b: 0, c: 5 });
 
 // Swap!
 // object1: { a: 5 , b: 2, c: 3 }
